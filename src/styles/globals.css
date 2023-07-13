@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+
+
+.article-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.article-hover:before,
+.article-hover:after,
+.article-hover .horizontal:before,
+.article-hover .horizontal:after {
+  content: "";
+  position: absolute;
+  background: rgb(0, 179, 255);
+  transition: width 1s, height 1s;
+}
+
+.article-hover:before,
+.article-hover:after {
+  width: 3px;
+  height: 0%;
+}
+
+.article-hover .horizontal:before,
+.article-hover .horizontal:after {
+  height: 3px;
+  width: 0%;
+}
+
+.article-hover:before {
+  top: 0;
+  left: 0;
+}
+
+.article-hover:after {
+  bottom: 0;
+  right: 0;
+}
+
+.article-hover .horizontal:before {
+  top: 0;
+  right: 0;
+}
+
+.article-hover .horizontal:after {
+  bottom: 0;
+  left: 0;
+}
+
+.article-hover:hover:before,
+.article-hover:hover:after {
+  height: 100%;
+}
+
+.article-hover:hover .horizontal:before,
+.article-hover:hover .horizontal:after {
+  width: 100%;
+}
+
+
+
